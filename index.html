@@ -95,6 +95,26 @@
             }
         }
 
+        .list{
+            width: 100%;
+            height: 93.5%;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 2px;
+        }
+
+        .listItem{
+            border-block: solid 1px rgba(0, 0, 0, 0.2);
+            padding-block: 14px;
+            padding-inline: 24px;
+        }
+
+        .listItem:hover{
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
         .mapa{
             width: 100%;
             height: 94.687vh;
@@ -104,8 +124,8 @@
 <body>
     <nav class="nav">
         <div>
-            <p onclick="ShowModalNewDevice()">new device</p>
-            <p onclick="ShowModalListDevice()">list of devices</p>
+            <p style="cursor: pointer;" onclick="ShowModalNewDevice()">New device</p>
+            <p style="cursor: pointer;" onclick="ShowModalListDevice()">List of devices</p>
         </div>
     </nav>
 
@@ -128,8 +148,13 @@
             <div class="modalheader">
                 <p>List of devices</p>
             </div>
-            <div>
-                
+            <div class="list">
+                <div class="listItem">
+                    <p>Huawei tracking 849</p>
+                </div>
+                <div class="listItem">
+                    <p>Samsung tracking 934</p>
+                </div>
             </div>
             <span onclick="CloseModalListDevice()" class="closeX">X</span>
         </div>        
