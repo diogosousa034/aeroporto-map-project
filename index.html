@@ -23,14 +23,19 @@
             padding-block: 24px;
         }
 
-        .nav div{
+        /* .nav .links{
+            display: flex;
+
+        } */
+
+        .ps{
             width: 200px;
             display: flex;
             margin-left: auto;
             justify-content: space-between;
         }
 
-        .nav div p{
+        .nav .links p{
             border-bottom: solid 1.8px var(--blueColor);
         }
 
@@ -153,17 +158,67 @@
             width: 100%;
             height: 94.687vh;
         }
+
+        @media only screen and (min-width: 500px){
+            .threeTracesIcon{
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 500px){
+            .links{
+                display: flex;
+                flex-direction: column;
+                text-align: right;
+                gap: 24px;
+            }
+
+            .ps{
+                display: none;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .threeTracesIcon{
+                width: 30px;
+                height: 15px;
+                margin-left: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-top: solid 2px black;
+                border-bottom: solid 2px black;
+            }
+        }
+        
+
+        
+
+        .threeTracesIcon::before{
+            content: "";
+            position: absolute;
+            width: 30px;
+            border-top: solid 2px black;
+        }
+
+        .displayFlex{
+            display: flex;
+        }
+
     </style>
 </head>
 <body>
     <nav class="nav">
-        <div>
-            <p style="cursor: pointer;" onclick="ShowModalNewDevice()">New device</p>
-            <p style="cursor: pointer;" onclick="ShowModalListDevice()">List of devices</p>
+        <div class="links">
+            <div onclick="ToggleResponsiveMenu()" class="threeTracesIcon"></div>
+            <diV id="menu" class="ps">
+                <p style="cursor: pointer;" onclick="ShowModalNewDevice()">New device</p>
+                <p style="cursor: pointer;" onclick="ShowModalListDevice()">List of devices</p>
+            </diV>
         </div>
     </nav>
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24884.15073499054!2d-9.13301427173355!3d38.77473855868345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2spt!4v1680033835128!5m2!1spt-PT!2spt" class="mapa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24884.15073499054!2d-9.13301427173355!3d38.77473855868345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-PT!2spt!4v1680033835128!5m2!1spt-PT!2spt" class="mapa" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     
     <div id="newDevice" class="modal">
         <div class="modalBackground">
@@ -211,6 +266,11 @@
     function CloseModalListDevice() {
         var element = document.getElementById("listDevice");
         element.classList.remove("listModalShow");
+    }
+
+    function ToggleResponsiveMenu() {
+        var element = document.getElementById("menu");
+        element.classList.toggle("displayFlex");
     }
 </script>
 </html>
